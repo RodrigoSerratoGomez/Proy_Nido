@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${titulo}">Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+
+	<header th:insert="fragments/menu :: menu-principal"></header>
+
+	<div class="container">
+		<h1 th:text="${titulo}"
+			class="text-secondary border border-success border-top-0 border-left-0 border-right-0"></h1>
+
+		<div th:object="${parentesco}" th:remove="tag">
+			<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+				<li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li>
+			</ul>
+		</div>
+		<form th:action="@{/agregarParentesco}" th:object="${parentesco}" method="post">
+			
+		
+			<!-- REGISTRAR EL PARENTESCO CON EL HIJO -->
+			
+				<div class="form-group row">
+			
+				<label class="col-sm-2 col-form-label">DNI ALUMNO</label>
+					<div class="col-sm-6">
+					
+					<select class="form-control" id="dropDownList"  th:field="*{alumno.dnialu}" 
+					 >
+					    <option value="0">Seleccionar DNI Alumno</option>
+					   	<option th:each="alumno:${alumnos}"
+								th:value="${alumno.dnialu}"
+								th:text="${alumno.dnialu}"  
+						/>		
+					</select>
+					 					
+					</div>
+				</div>
+				
+				
+					
+				<div class="form-group row">
+			
+				<label class="col-sm-2 col-form-label">DNI APODERADO</label>
+					<div class="col-sm-6">
+					
+					<select class="form-control" id="dropDownList"  th:field="*{apoderado.dniapon}" 
+					 >
+					    <option value="0">Seleccionar DNI Apoderado</option>
+					   	<option th:each="apoderado:${apoderados}"
+								th:value="${apoderado.dniapon}"
+								th:text="${apoderado.dniapon}"
+							/>		
+					</select>
+					 					
+					</div>
+				</div>
+				
+ 			
+			
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label"  >¿Vive con el niño? (S:SI, N:NO)</label>
+				<div class="col-sm-6">
+					<input type="text" th:field="*{vivealu}" class="form-control"
+						th:errorclass="'form-control alert-danger'" /> <small
+						class="form-text text-danger"
+						th:if="${#fields.hasErrors('vivealu')}" th:errors="*{vivealu}"></small>
+				</div>
+			</div>
+			
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label" >RELACIÓN</label>
+				<div class="col-sm-6">
+					<input type="text" th:field="*{relacion}" class="form-control"
+						th:errorclass="'form-control alert-danger'" /> <small
+						class="form-text text-danger"
+						th:if="${#fields.hasErrors('relacion')}" th:errors="*{relacion}"></small>
+				</div>
+			</div>
+			
+			
+			<div class="form-group row">
+				<div class="col-sm-6">
+					<input type="submit" value="Registrar Parentesco" class="btn btn-primary" />
+				</div>
+			</div>
+			
+			<!--
+			<p class="nav-item active"  style="text-align:center; font-size: large; margin-top:2.5mm;" >
+			<a class="btn-xl nav-link" th:href="@{/registroApoderado}"> Siguiente </a>
+			</p>
+			-->		
+		<p class="nav-item active"  style="text-align:center; font-size: large; margin-top:2.5mm;" >
+			<a class="btn-xl nav-link" th:href="@{/listarParentesco}"> Ver Listado de Parentesco </a>
+			</p>
+			
+		</form>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>

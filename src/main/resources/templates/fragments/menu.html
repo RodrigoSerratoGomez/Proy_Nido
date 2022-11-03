@@ -1,0 +1,62 @@
+<nav th:fragment="menu-principal" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" th:href="@{/index}">NIDO LUZ Y VIDA</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{/index}">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Agregar Items
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" th:href="@{/agregarDetalledis}">Discapacidad</a></li>
+            <li><a class="dropdown-item" th:href="@{/agregarMatricula}">Matricula</a></li>
+            <li><a class="dropdown-item" th:href="@{/agregarNumero}">Número</a></li>
+            <li><a class="dropdown-item" th:href="@{/agregarParentesco}">Parentesco</a></li>
+            <li><a class="dropdown-item" th:href="@{/agregarReligion}">Religión</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Listados
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" th:href="@{/listarAlumno}">Alumno</a></li>
+            <li><a class="dropdown-item" th:href="@{/listarApoderado}">Apoderado</a></li>
+            <li><a class="dropdown-item" th:href="@{/listarControl}">Control</a></li>
+            <li><a class="dropdown-item" th:href="@{/listarDetalledis}">Detalle de Discapacidad</a></li>
+            <li><a class="dropdown-item" th:href="@{/listarMatricula}">Matricula</a></li>
+            <li><a class="dropdown-item" th:href="@{/listarNumero}">Número Celular</a></li>
+            <li><a class="dropdown-item" th:href="@{/listarParentesco}">Parentesco</a></li>
+            <li><a class="dropdown-item" th:href="@{/listarReligion}">Religión</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Registros
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" th:href="@{/registroAlumno}">Alumno</a></li>
+            <li><a class="dropdown-item" th:href="@{/registroApoderado}">Apoderado</a></li>
+            <li><a class="dropdown-item" th:href="@{/registroControl}">Control</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Reportes
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" th:href="@{/listarReporteMatriculado}">Matricula</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <a class="btn btn-primary" th:href="@{/usuarios/index}">Gestionar Usuario</a>&nbsp;
+    <a class="btn btn-primary" th:href="@{/logout}">Cerrar Sesión</a>&nbsp;
+  </div>
+</nav>
