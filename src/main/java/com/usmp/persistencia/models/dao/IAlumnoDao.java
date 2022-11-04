@@ -6,7 +6,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.usmp.persistencia.models.entities.Alumno;
 
-public interface IAlumnoDao extends PagingAndSortingRepository<Alumno, String> , CustomIAlumnoDao {
+public interface IAlumnoDao extends PagingAndSortingRepository<Alumno, String>, Custom1IAlumnoDao, CustomIAlumnoDao {
 	//CustomIAlumnoDao extendemos el dao para poder ejecutar el query
 	public List<Alumno> findByDnialu(String dnialu);
 	
