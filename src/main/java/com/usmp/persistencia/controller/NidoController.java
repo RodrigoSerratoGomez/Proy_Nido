@@ -48,6 +48,7 @@ import com.usmp.persistencia.models.service.IPaisService;
 import com.usmp.persistencia.models.service.IParentescoService;
 import com.usmp.persistencia.models.service.IReligionService;
 import com.usmp.persistencia.models.service.IReporteMatriculadosService;
+import com.usmp.persistencia.models.service.IReporteVacantesService;
 import com.usmp.persistencia.models.service.ITipodiscaService;
 import com.usmp.persistencia.models.service.ITipoteleService;
 
@@ -96,6 +97,9 @@ public class NidoController {
 	@Autowired
 	private IReporteMatriculadosService reporteMatriculadoService;
 	
+	@Autowired
+	private IReporteVacantesService reporteVacantesService;
+
 	//----fin de las instancias---//
 	
 	
@@ -941,5 +945,15 @@ public class NidoController {
 	
 	 
 	 
+	// VISTA AL REPORTE VACANTE
+	 
+	@RequestMapping(value = "/listarReporteVacantes", method = RequestMethod.GET) //listamos los alumnos
+	public String listarReporte1 (Model model) {
+		
+		model.addAttribute("reportes", reporteVacantesService.listaParaReporte1() ); 
+		//ENVIAMOS EL REPORTE A LA VISTA DEL HTML
+		return "listarReporteVacantes";
+	}					
+	
 	 
 }

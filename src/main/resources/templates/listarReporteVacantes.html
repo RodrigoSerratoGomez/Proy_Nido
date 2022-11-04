@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${titulo}">Insert title here</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" 
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">NIDO LUZ Y VIDA</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active"><a class="nav-link" th:href="@{/registroAlumno}">Registrar nuevo Alumno</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/registroApoderado}">Registrar nuevo Apoderado</a>
+				<li class="nav-item"><a class="nav-link" th:href="@{/agregarParentesco}">Registrar Parentesco</a>
+			
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<h1
+			class="text-secondary border border-success border-top-0 border-left-0 border-right-0"
+			th:text="${titulo}"></h1>
+		<p><a th:href="@{/registroAlumno}" class="btn btn-success btn-xs">Registrar Nuevo Alumno</a></p>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>NIVEL</th>
+					<th>VACANTES OFERTADAS</th>
+					<th>VACANTES DISPONIBLES</th>
+										
+				</tr>
+				</thead>
+			
+			<tbody>
+				<tr th:each="reporte: ${reportes}">
+					<td th:text="${reporte.nomNivel}"></td>
+					<td th:text="${reporte.vacantesOfertadas}"></td>
+					<td th:text="${reporte.vacantesDisponibles}"></td>
+
+	
+					
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+	
+			
+			<p class="nav-item active"  style="text-align:center; font-size: large; margin-top:2.5mm;" >
+			<a class="btn-xl nav-link" th:href="@{/listarAlumno}"> Ver Listado de Alumnos </a>
+			</p>
+			
+				
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
