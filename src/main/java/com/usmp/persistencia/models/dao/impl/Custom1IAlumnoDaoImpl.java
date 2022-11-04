@@ -9,10 +9,10 @@ import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.usmp.persistencia.models.dao.CustomIAlumnoDao;
-import com.usmp.persistencia.models.entities.ReporteMatriculados;
+import com.usmp.persistencia.models.dao.Custom1IAlumnoDao;
+import com.usmp.persistencia.models.entities.ReporteVacantes;
 @Repository
-public class CustomIAlumnoDaoImpl implements CustomIAlumnoDao {
+public class Custom1IAlumnoDaoImpl implements Custom1IAlumnoDao {
 //implementamos el CustomDao del package dao
 	
 	@Autowired
@@ -20,27 +20,25 @@ public class CustomIAlumnoDaoImpl implements CustomIAlumnoDao {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<ReporteMatriculados> listaParaReporte() {
+	public List<ReporteVacantes> listaParaReporte1() {
 		System.out.println("listaParaReporte - INI");
 		//CREAMOS MANUALMENTE EL QUERY TAL CUAL EN EL SQL  
-		String sql = "SELECT  TO_CHAR(M.FECMATRI,'YYYY') AS AÑO, N.NOMNIVEL,  COUNT (TO_CHAR(M.FECMATRI,'YYYY')) "
-				+ "AS \"CANTIDAD MATRICULADOS\" FROM MATRICULA M, NIVEL N WHERE M.NIVEL_IDNIVEL = N.IDNIVEL GROUP BY N.NOMNIVEL, "
-				+ "TO_CHAR(M.FECMATRI,'YYYY') ORDER BY TO_CHAR(M.FECMATRI,'YYYY'), N.NOMNIVEL";
-		
+	
+		String sql = "SELECT nomnivel , '30' AS \\\"VACANTES OFERTADAS\\\",30-COUNT(NIVEL_IDNIVEL) as \\\"VACANTES DISPONIBLES\\\" FROM MATRICULA M, NIVEL N WHERE m.nivel_idnivel=n.idnivel AND TO_CHAR(FECMATRI,'YYYY')='2022' GROUP by n.nomnivel ORDER BY n.nomnivel";
 		//HIBERNATE CREA Y EJECUTA EL QUERY
 		Query q = em.createNativeQuery(sql);
 		List<Object[]> lRes = q.getResultList(); //QUERY LO DEVUELVE COMO UNA LISTA DE OBJETO
-		List<ReporteMatriculados> lRespuesta = null ;
+		List<ReporteVacantes> lRespuesta = null ;
 		
 		if( lRes != null ) {
 			System.out.println("listaParaReporte - resultadosobtenidos = " + lRes.size() );
 			lRespuesta = new ArrayList<>() ;
-			ReporteMatriculados objTemp = null;
+			ReporteVacantes objTemp = null;
 			for( Object[] obj :lRes) {
-				objTemp = new ReporteMatriculados();
-				objTemp.setAnio(obj[0]+""); //seteo manual de los datos siguiendo el orden del query
-				objTemp.setNomNivel( obj[1]+"");
-				objTemp.setCantidadMatriculados( Integer.parseInt( obj[2]+""));
+				objTemp = new ReporteVacantes();
+				objTemp.setNomNivel(obj[0]+"");
+				objTemp.setVacantesOfertadas(Integer.parseInt( obj[1]+""));
+				objTemp.setVacantesDisponibles( Integer.parseInt( obj[2]+""));
 				lRespuesta.add(objTemp);
 			}
 		}
@@ -48,5 +46,7 @@ public class CustomIAlumnoDaoImpl implements CustomIAlumnoDao {
 		System.out.println("listaParaReporte - FIN");
 		return lRespuesta;
 	}
+
+
 
 }
