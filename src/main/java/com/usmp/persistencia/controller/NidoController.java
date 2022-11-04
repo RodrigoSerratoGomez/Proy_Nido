@@ -185,7 +185,7 @@ public class NidoController {
 			//return "redirect:listarAlumno"; //cuando registro me manda a listar defrente
 			//cuando registre, esto me mandara a registrar a su apoderado
 			
-			return "redirect:registroApoderado";
+			return "redirect:listarAlumno";
 		 
 	}
 
