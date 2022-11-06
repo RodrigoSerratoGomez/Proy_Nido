@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${titulo}">Usuario Lista</title>
+<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+<link rel="icon" href="favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body style="background-color: #E5E7E9">
+
+    <header th:insert="fragments/menu :: menu-principal"></header>
+
+	  <div class="container"> 
+	    <div class="card border-dark">
+	      <h4 class="card-header"><strong>Reporte de Pagos</strong></h4>              
+	      <div class="card-body">
+	        
+	        <hr>
+	        <div class='alert alert-success' role='alert'></div>
+	        <table class="table table-hover">
+	          <thead class="thead-light">
+	            <tr>
+	              <th scope="col">Alumnos</th>
+	              <th scope="col">Apoderados</th>
+	              <th scope="col">Estado</th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	             <tr>
+	              <th scope="col">Yanela Urreiztieta Florentino</th>
+	              <th scope="col">Maristhel Florentino Martinez</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Robert Gutierrez Chavez</th>
+	              <th scope="col">Camilo Gutierrez Cruz</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Dariela Torres Florentino</th>
+	              <th scope="col">Jose Torres Lubo</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Carlos Torres Pino</th>
+	              <th scope="col">Jose Torres Lubo</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Jhon Bianchini Pino</th>
+	              <th scope="col">Yarley Rojas Vargas</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Martin Choque Pino</th>
+	              <th scope="col">Roberto Choque Piñero</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Jose Cardenas Diaz</th>
+	              <th scope="col">Lidia Diaz Valverche</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Maria Navarro Navarro</th>
+	              <th scope="col">Yorka Navarro Navarro</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Degoberto Lopez Lopez</th>
+	              <th scope="col">Luis Lopez Rvera</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Martin Choque Pino</th>
+	              <th scope="col">Fernanda Pino Govea</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Luisa Salas Romero</th>
+	              <th scope="col">Sony Salas</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Felicitas Alvano Roperth</th>
+	              <th scope="col">Jhon Alvano Linares</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Yanela Urreiztieta Florentino</th>
+	              <th scope="col">Sofia Taborda Gusman</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Cecilia Pozlo Rios</th>
+	              <th scope="col">Anthony Pozlo Sanchez</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Recio Alpez Guillanes</th>
+	              <th scope="col">Zoila Alpez Alpez</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Renato Rosi Baladan Ron</th>
+	              <th scope="col">Fabian Rosi</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Max Orcat Taborda</th>
+	              <th scope="col">Maximo Orcat Martinez</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Renzo Balarian Opo</th>
+	              <th scope="col">Sara Balarian</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Rosa del Aguila</th>
+	              <th scope="col">Martín del Aguila</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Cinthya Dussan Guzman</th>
+	              <th scope="col">Billy Duzzan Arizaga</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Drago Gimenez Gomez</th>
+	              <th scope="col">Natalia Yucra Gomez</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	            <tr>
+	              <th scope="col">Mariana Alcazar Roa</th>
+	              <th scope="col">Nilda Mamani Ritz</th>
+	              <th scope="col">SI</th>
+	            </tr>
+	          </tbody>
+	        </table>
+	        
+	      </div>
+	    </div>
+	  </div> <!-- /container -->
+	<br><br><br>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+	</body>
+</html>
