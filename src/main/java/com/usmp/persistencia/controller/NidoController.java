@@ -49,7 +49,7 @@ import com.usmp.persistencia.models.service.IParentescoService;
 import com.usmp.persistencia.models.service.IReligionService;
 import com.usmp.persistencia.models.service.IReporteMatriculadosService;
 import com.usmp.persistencia.models.service.IReporteVacantesService;
-import com.usmp.persistencia.models.service.IReportePagosService;
+
 import com.usmp.persistencia.models.service.ITipodiscaService;
 import com.usmp.persistencia.models.service.ITipoteleService;
 
