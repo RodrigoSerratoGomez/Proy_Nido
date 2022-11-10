@@ -1,80 +1,80 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8" />
-<title th:text="${titulo}">Insert title here</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	<meta charset="UTF-8" />
+	<title th:text="${titulo}">Insert title here</title>
+	<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+	<link rel="icon" href="favicon.ico">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	<link th:href="@{/css/apoderado/lista.css}" rel="stylesheet">
 </head>
+
 <body>
 
 	<header th:insert="fragments/menu :: menu-principal"></header>
 
-	<div class="container">
-		<h1
-			class="text-secondary border border-success border-top-0 border-left-0 border-right-0"
-			th:text="${titulo}"></h1>
-		<p><a th:href="@{/registroAlumno}" class="btn btn-success btn-xs">Registrar Nuevo Apoderado</a></p>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>DNI</th>
-					<th>NOMBRES</th>
-					<th>APELLIDOS</th>
-					<th>SEXO </th>
-					<th>FECHA NACIMIENTO </th>
-					<th>DIRECCIÓN</th>
-					<th>GRADO DE INSTRUCCION</th>
-					<th>OCUPACION</th>	
-					<th>CORREO</th>
-					<th>SUELDO MENSUAL</th>
-					<th>RELIGION</th>
-					
-					<th>EDITAR</th>
-					<th>ELIMINAR</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="apon: ${apon}">
-					<td th:text="${apon.dniapon}"></td>
-					<td th:text="${apon.nomapon}"></td>
-					<td th:text="${apon.apeapon}"></td>
-					<td th:text="${apon.sexo}"></td>
-					<td th:text="${apon.fecnacapon}"></td>
-					<td th:text="${apon.direccion}"></td>	
-					
-					<td th:text="${apon.gradoinstruc}"></td>
-					<td th:text="${apon.ocupacion}"></td>
-					<td th:text="${apon.correo}"></td>		
-					<td th:text="${apon.sueldomen}"></td>	
-					
-					<td th:text="${apon.religion.nomreli}"></td>	
-						
-					<td><a class="btn btn-primary btn-xs glyphicon glyphicon-pencil "  th:href="@{/registroApoderado/} + 
-					                       ${apon.dniapon}" th:text="''"></a></td>
-					<td><a class="btn btn-danger btn-xs glyphicon glyphicon-remove" th:href="@{/eliminarApoderado/} +
-					 ${apon.dniapon}" th:text="''" onclick="return confirm(
-							 'Estás seguro que quieres eliminar?');"></a></td>
-					 
-				<!-- 			 
-					<td><a class="btn btn-primary btn-xs" th:href="@{/listarAlumno/} + 
-					                       ${alu.dnialu}" th:text="'reporte'"></a></td>
-				-->
-					                       
-				</tr>
-			</tbody>
-
-		</table>
+	<div class="container-fluid">
+		<div class="card border-dark">
+			<h4 class="card-header"><strong>Listado de Apoderados</strong></h4>
+			<div class="card-body">
+				<a class="btn btn-dark" th:href="@{/registroApoderado}" role="button"><i class="fas fa-file"
+						aria-hidden="true"></i> Nuevo Apoderado</a>
+				<hr>
+				<div th:if="${msg!=null}" class='alert alert-success' th:text="${msg}" role='alert'></div>
+				<table class="table table-hover">
+					<thead class="thead-light">
+						<tr>
+							<th scope="col">DNI</th>
+							<th scope="col">Nombres</th>
+							<th scope="col">Apellidos</th>
+							<th scope="col">Sexo</th>
+							<th scope="col">Fecha Nacimiento</th>
+							<th scope="col">Dirección</th>
+							<th scope="col">Grado de Instrucción</th>
+							<th scope="col">Ocupación</th>
+							<th scope="col">Correo</th>
+							<th scope="col">Sueldo Mensual</th>
+							<th scope="col">Religión</th>
+							<th scope="col">Operaciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="apon: ${apon}">
+							<td scope="row" th:text="${apon.dniapon}"></td>
+							<td th:text="${apon.nomapon}"></td>
+							<td th:text="${apon.apeapon}"></td>
+							<td th:text="${apon.sexo}"></td>
+							<td th:text="${apon.fecnacapon}"></td>
+							<td th:text="${apon.direccion}"></td>
+							<td th:text="${apon.gradoinstruc}"></td>
+							<td th:text="${apon.ocupacion}"></td>
+							<td th:text="${apon.correo}"></td>
+							<td th:text="${apon.sueldomen}"></td>
+							<td th:text="${apon.religion.nomreli}"></td>
+							<td>
+								<a th:href="@{/registroApoderado/} + ${apon.dniapon}" class="btn btn-success btn-sm"
+									role="button" title="Editar el registro."><i class="fas fa-pencil-alt"
+										aria-hidden="true"></i></a>
+								<a th:href="@{/eliminarApoderado/} + ${apon.dniapon}"
+									onclick="return confirm('¿Estas seguro?')" class="btn btn-danger btn-sm"
+									role="button" title="Eliminar el registro."><i class="fas fa-trash"
+										aria-hidden="true"></i></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
-	
-			
-			<p class="nav-item active"  style="text-align:center; font-size: large; margin-top:2.5mm;" >
-			<a class="btn-xl nav-link" th:href="@{/listarAlumno}"> Ver Listado de Alumnos </a>
-			</p>
-			
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+		crossorigin="anonymous"></script>
+
 </body>
 
 </html>

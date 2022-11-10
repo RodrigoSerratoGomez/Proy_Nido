@@ -1,0 +1,12 @@
+body {
+    background-color: #E5E7E9;
+}
+
+.container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.form-control {
+    text-align: center;
+}

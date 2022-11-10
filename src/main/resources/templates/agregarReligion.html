@@ -1,54 +1,58 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8" />
-<title th:text="${titulo}">Insert title here</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	<meta charset="UTF-8" />
+	<title th:text="${titulo}"></title>
+	<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+	<link rel="icon" href="favicon.ico">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	<link th:href="@{/css/religion/formulario.css}" rel="stylesheet">
 </head>
+
 <body>
 
 	<header th:insert="fragments/menu :: menu-principal"></header>
 
-	<div class="container">
-		<h1 th:text="${titulo}"
-			class="text-secondary border border-success border-top-0 border-left-0 border-right-0"></h1>
+	<div class="container col-md-4">
+		<div class="card text-center border-dark">
+			<h4 class="card-header"><strong>Registro del Número de Celular</strong></h4>
+			<div class="card-body">
+				<form th:action="@{/agregarReligion}" th:object="${reli}" method="post">
+					<div th:if="${#fields.hasErrors('*')}" class='alert alert-danger' role='alert'>
+						Por favor corrija los siguientes errores:
+						<ul>
+							<li th:each="err:${#fields.errors('*')}" th:text="${err}"></li>
+						</ul>
+					</div>
+					<input type="hidden" th:field="*{idreli}" />
 
-		<div th:object="${reli}" th:remove="tag">
-			<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
-				<li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li>
-			</ul>
-		</div>
-		
-		<form th:action="@{/agregarReligion}" th:object="${reli}" method="post">
-		
-			<input type="hidden" th:field="*{idreli}" /> 		
-			
-			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Nombre de Religion</label>
-				<div class="col-sm-6">
-					<input type="text" th:field="*{nomreli}" class="form-control"
-						th:errorclass="'form-control alert-danger'" /> <small
-						class="form-text text-danger"
-						th:if="${#fields.hasErrors('nomreli')}" th:errors="*{nomreli}"></small>
-				</div>
-			</div>			
-			
-						
-			<div class="form-group row">
-				<div class="col-sm-6">
-					<input type="submit" value="Crear Religion" class="btn btn-primary" />
-				</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Religion</label>
+								<input type="text" class="form-control text-center" th:field="*{nomreli}"
+									placeholder="Ingrese el Nombre de la Religion"
+									th:errorclass="'form-control alert-danger'" /> <small class="form-text text-danger"
+									th:if="${#fields.hasErrors('nomreli')}" th:errors="*{nomreli}"></small>
+							</div>
+						</div>
+					</div>
+
+					<hr>
+					<div class="d-grid gap-2 d-md-block">
+						<a class="btn btn btn-dark" th:href="@{/listarReligion}">Ver Lista</a>
+						<button type="submit" class="btn btn-dark">Guardar</button>
+					</div>
+				</form>
 			</div>
-			
-			<p class="nav-item active"  style="text-align:center; font-size: large; margin-top:2.5mm;" >
-			<a class="btn-xl nav-link" th:href="@{/listarReligion}"> Ver Listado de Religion </a>
-			</p>
-			
-						
-
-		</form>
+		</div>
 	</div>
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+		crossorigin="anonymous"></script>
 </body>
+
 </html>
