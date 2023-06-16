@@ -1,8 +1,14 @@
-HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+NidoControllerBORRAR.java
+menuBORRAR.html
+implBORRAR/
+entitiesBORRAR/
+serviceBORRAR/
+cssBORRAR/
+templatesBORRAR/
 
 ### STS ###
 .apt_generated
@@ -29,5 +35,4 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
-.vscode/
+

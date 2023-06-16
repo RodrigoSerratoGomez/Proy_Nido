@@ -15,6 +15,13 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import com.usmp.persistencia.models.entities.entitiesBORRAR.Control;
+import com.usmp.persistencia.models.entities.entitiesBORRAR.Detalledi;
+import com.usmp.persistencia.models.entities.entitiesBORRAR.Matricula;
+import com.usmp.persistencia.models.entities.entitiesBORRAR.Pai;
+import com.usmp.persistencia.models.entities.entitiesBORRAR.Parentesco;
+import com.usmp.persistencia.models.entities.entitiesBORRAR.Religion;
+
 
 /**
  * The persistent class for the ALUMNO database table.

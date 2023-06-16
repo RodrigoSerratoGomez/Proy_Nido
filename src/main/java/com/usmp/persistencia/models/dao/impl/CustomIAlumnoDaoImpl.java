@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.usmp.persistencia.models.dao.CustomIAlumnoDao;
-import com.usmp.persistencia.models.entities.ReporteMatriculados;
+import com.usmp.persistencia.models.entities.entitiesBORRAR.ReporteMatriculados;
 @Repository
 public class CustomIAlumnoDaoImpl implements CustomIAlumnoDao {
 //implementamos el CustomDao del package dao
